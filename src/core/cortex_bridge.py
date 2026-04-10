@@ -47,10 +47,7 @@ class M1CortexBridge:
         """Detect and configure the best available device."""
         if torch.backends.mps.is_available():
             # M1/M2/M3 optimization: configure for Metal Performance Shaders
-            torch.set_default_dtype(torch.float32)
-            # Disable MPS high watermark for memory efficiency
-            if hasattr(torch.mps, 'set_low_memory_mode'):
-                torch.mps.set_low_memory_mode(True)
+            # Note: Using float16 for 2x speedup, 50% memory reduction (ML-001)
             return "mps"
         return "cpu"
     
@@ -63,6 +60,7 @@ class M1CortexBridge:
             from transformers import AutoModelForCausalLM, AutoTokenizer
         except ImportError:
             # Fallback: create mock model for development/testing
+            from .critical_fixes import MockModel, MockTokenizer
             self._model = MockModel()
             self._tokenizer = MockTokenizer()
             return
@@ -76,11 +74,12 @@ class M1CortexBridge:
             trust_remote_code=True
         )
         
-        # Load model with MPS/CPU
+        # Load model with MPS/CPU (using float16 for MPS - ML-001 optimization)
+        dtype = torch.float16 if self.device == "mps" else torch.float32
         self._model = AutoModelForCausalLM.from_pretrained(
             repo,
             device_map=self.device,
-            torch_dtype=torch.float32,
+            torch_dtype=dtype,
             trust_remote_code=True
         )
         

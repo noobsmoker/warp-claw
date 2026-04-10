@@ -108,8 +108,32 @@ class ModelList(BaseModel):
     data: List[ModelInfo]
 
 
-# === Global State ===
-initialized_models = {}
+# === Global State (Thread-Safe) ===
+# Using ThreadSafeState for concurrent access
+from src.core.critical_fixes import _model_state
+
+# For backwards compatibility, provide dict-like access
+class _ModelStateProxy:
+    """Proxy for backwards compatibility with dict access."""
+    @staticmethod
+    def __getitem__(key):
+        import asyncio
+        loop = asyncio.get_event_loop()
+        return loop.run_until_complete(_model_state.get(key))
+    
+    @staticmethod
+    def __setitem__(key, value):
+        import asyncio
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(_model_state.set(key, value))
+    
+    @staticmethod
+    def get(key, default=None):
+        import asyncio
+        loop = asyncio.get_event_loop()
+        return loop.run_until_complete(_model_state.get(key)) or default
+
+initialized_models = _ModelStateProxy()
 
 
 # === Endpoints ===
