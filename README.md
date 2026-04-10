@@ -1,4 +1,4 @@
-# 🤖 Warp-Claw
+# 🌀 Warp-Claw
 
 > Hybrid infrastructure combining Warp-Cortex with OpenAI-compatible API for local Apple Silicon deployment.
 
