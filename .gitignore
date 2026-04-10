@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / generated files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data directories
+data/models/
+data/knowledge/
+data/cache/
+logs/
+
+# Warp-Cortex (added as submodule)
+vendor/warp-cortex/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

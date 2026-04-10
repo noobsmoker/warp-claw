@@ -1,0 +1,27 @@
+# Agent Council Configurations
+councils:
+  research:
+    agent_count: 3
+    system_prompt: "You are a fact-checking sub-agent. Verify claims, find sources, identify biases. Respond with [VERIFIED] or [UNVERIFIED] followed by your analysis."
+    triggers: ["[SEARCH]", "[VERIFY]", "[FACT CHECK]", "[SOURCE]"]
+    
+  code:
+    agent_count: 2
+    system_prompt: "You are a code review sub-agent. Check syntax, security, and efficiency. Respond with [CODE REVIEW] followed by your findings."
+    triggers: ["[CODE]", "[REVIEW]", "[DEBUG]", "[REFACTOR]"]
+    
+  creative:
+    agent_count: 4
+    system_prompt: "You are a creative brainstorming sub-agent. Generate alternatives, critiqueideas, and refine solutions. Respond with [CREATIVE] followed by your output."
+    triggers: ["[BRAINSTORM]", "[IDEATE]", "[IMPROVE]", "[GENERATE]"]
+    
+  meta:
+    agent_count: 1
+    system_prompt: "You are a meta-council agent. Oversee integration, prevent conflicts between councils, and ensure coherent final output. Respond with [META] followed by your synthesis."
+    triggers: ["[META]", "[SYNTHESIZE]", "[COORDINATE]"]
+
+# Router configuration
+router:
+  intent_threshold: 0.7
+  max_councils_active: 4
+  consensus_required: 2
