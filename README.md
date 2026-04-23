@@ -144,7 +144,7 @@ warp_cortex:
 ### Interactive CLI
 
 ```bash
-warp-claw
+warp-agent
 ```
 
 Features:
@@ -156,7 +156,7 @@ Features:
 ### Modern TUI
 
 ```bash
-warp-claw --tui
+warp-agent --tui
 ```
 
 React-based terminal UI with:
@@ -168,7 +168,7 @@ React-based terminal UI with:
 ### Messaging Gateway
 
 ```bash
-warp-claw gateway
+warp-agent gateway
 ```
 
 Connect via:

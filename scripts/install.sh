@@ -12,7 +12,7 @@
 # 1. Detects platform (desktop/server vs Android/Termux)
 # 2. Creates Python 3.11 virtual environment
 # 3. Installs all dependencies including Warp-Cortex components
-# 4. Sets up warp-claw command
+# 4. Sets up warp-agent command
 # 5. Optionally runs setup wizard
 # ============================================================================
 
