@@ -285,7 +285,7 @@ MIT License - see LICENSE file.
 
 ### Built on Hermes Agent
 
-Warp-Claw is built upon **[Hermes Agent](https://github.com/nousresearch/hermes-agent)** — the self-improving AI agent framework by Nous Research. This project extends Hermes with Warp-Cortex scaling technology to enable massive multi-agent coordination.
+Warp Agent is built upon **[Hermes Agent](https://github.com/nousresearch/hermes-agent)** — the self-improving AI agent framework by Nous Research. This project extends Hermes with Warp-Cortex scaling technology to enable massive multi-agent coordination.
 
 **Hermes Agent provides:**
 - Core AI agent architecture and conversation loops
@@ -295,7 +295,7 @@ Warp-Claw is built upon **[Hermes Agent](https://github.com/nousresearch/hermes-
 - Skills system and memory management
 - Open-source licensing (MIT)
 
-**Warp-Claw adds:**
+**Warp Agent adds:**
 - Warp-Cortex scaling infrastructure
 - Singleton weight sharing for memory efficiency
 - Topological Synapse for context compression
