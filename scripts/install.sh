@@ -6,7 +6,7 @@
 # Works on Linux, macOS, WSL2, and Android (Termux).
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/noobsmoker/warp-agent/main/scripts/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/noobsmoker/Warp-Agent/main/scripts/install.sh | bash
 #
 # This script:
 # 1. Detects platform (desktop/server vs Android/Termux)
@@ -87,7 +87,7 @@ setup_venv() {
     echo -e "${YELLOW}Activating virtual environment...${NC}"
     source "$venv_path/bin/activate"
     
-    echo -e "${CYAN}Installing Warp-Claw with all dependencies...${NC}"
+    echo -e "${CYAN}Installing Warp Agent with all dependencies...${NC}"
     uv pip install -e ".[all]"
     
     # Verify installation
